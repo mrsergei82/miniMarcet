@@ -22,7 +22,8 @@ public class GetCategoryTest {
     @Test
     void getCategoryByIdPositiveTest() {
         Response<GetCategoryResponse> response = categoryService.getCategory(1).execute();
-        assertThat(response.isSuccessful(), CoreMatchers.is(false));
+        assertThat(response.isSuccessful(), CoreMatchers.is(true));
+        assertThat(response.body().getTitle(), equalTo("Food"));
     }
     @SneakyThrows
     @Test
