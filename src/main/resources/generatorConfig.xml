@@ -14,16 +14,16 @@
                         password="postgres">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="ru.geekbrains.java4.lesson6.db.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="org.example.java4.lesson6.db.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="ru.geekbrains.java4.lesson6.db.mapper.xml" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="org.example.java4.lesson6.db.mapper.xml" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="ru.geekbrains.java4.lesson6.db.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.example.java4.lesson6.db.dao"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
