@@ -43,6 +43,7 @@ public class CreateProductTest {
         assertThat(response.isSuccessful(), CoreMatchers.is(true));
     }
 
+
     @SneakyThrows
     @AfterEach
     void tearDown(){

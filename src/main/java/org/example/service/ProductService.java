@@ -5,7 +5,7 @@ import org.example.dto.Product;
 import retrofit2.Call;
 import retrofit2.http.*;
 
-public interface ProductService {
+public interface  ProductService {
     @POST("products")
     Call<Product> createProduct(@Body Product createProductRequest);
     @GET("products/{id}")
