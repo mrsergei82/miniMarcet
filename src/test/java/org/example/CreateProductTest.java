@@ -5,15 +5,15 @@ import okhttp3.ResponseBody;
 import org.hamcrest.*;
 import org.junit.jupiter.api.*;
 import retrofit2.Response;
-import org.example.dto.GetCategoryResponse;
-import org.example.service.CategoryService;
+
+
 import org.example.util.RetrofitUtils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+
 import org.example.dto.Product;
 import org.example.service.ProductService;
-import org.example.util.RetrofitUtils;
+
 import org.junit.jupiter.api.BeforeAll;
 
 public class CreateProductTest {
@@ -21,6 +21,7 @@ public class CreateProductTest {
     Product product;
     Faker faker = new Faker();
     int id;
+    int currentId;
 
     @BeforeAll
     static void beforeAll(){
@@ -41,6 +42,33 @@ public class CreateProductTest {
                 .execute();
         id= response.body().getId();
         assertThat(response.isSuccessful(), CoreMatchers.is(true));
+    }
+    @Test
+    @SneakyThrows
+    void getProdTest(){
+        currentId = productService.createProduct(product).execute().body().getId();
+        Response<Product> response = productService.getProduct(currentId)
+                .execute();
+        id=currentId;
+        assertThat(response.isSuccessful(), CoreMatchers.is(true));
+    }
+    @Test
+    @SneakyThrows
+    void putProductTest(){
+        currentId = productService.createProduct(product).execute().body().getId();
+        System.out.println(currentId);
+
+        Product newProduct = new Product()
+                .withId(currentId)
+                .withTitle("Bread")
+                .withPrice((int) 500)
+                .withCategoryTitle("Food");
+        System.out.println(newProduct);
+        Response<Product> response = productService.modifyProduct(newProduct).execute();
+        System.out.println(response);
+        id=currentId;
+        assertThat(response.isSuccessful(),CoreMatchers.is(true));
+
     }
 
 
