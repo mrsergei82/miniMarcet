@@ -16,8 +16,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="ru.geekbrains.java4.lesson6.db/mapper.xml/CategoriesMapper.xml"/>
-        <mapper resource="ru.geekbrains.java4.lesson6.db/mapper.xml/ProductsMapper.xml"/>
+        <mapper resource="db/mapper/xml/CategoriesMapper.xml"/>
+        <mapper resource="db/mapper/xml/ProductsMapper.xml"/>
     </mappers>
 
 </configuration>

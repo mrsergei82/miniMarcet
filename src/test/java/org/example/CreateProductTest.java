@@ -56,7 +56,7 @@ public class CreateProductTest {
         assertThat(response.isSuccessful(), CoreMatchers.is(true));
     }
     @Test
-    @SneakyThrows
+
     void putProductTest() throws Exception{
         currentId = productService.createProduct(product).execute().body().getId();
         Product newProduct = new Product()
@@ -67,7 +67,7 @@ public class CreateProductTest {
         Response<Product> response = productService.modifyProduct(newProduct).execute();
         id=currentId;
         assertThat(response.isSuccessful(),CoreMatchers.is(true));
-        ProductsMapper pm = Main.getProductMaper();
+        ProductsMapper pm = Main.getCategoriMaper(ProductsMapper.class);
         pm.selectByPrimaryKey((long)response.body().getId()).equals(currentId);
     }
     @SneakyThrows

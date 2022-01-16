@@ -11,10 +11,10 @@ import ru.geekbrains.java4.lesson6.db.dao.ProductsMapper;
 import java.io.IOException;
 import java.io.InputStream;
 
-@UtilityClass
+ @UtilityClass
 public class Main {
     private final String resource = "mybatis-config.xml";
-    public static SqlSession main() throws IOException {
+   /* public static SqlSession main() throws IOException {
         SqlSessionFactory sqlSessionFactory;
         //NyBatis Configuration file
         //String resource = "mybatis-config.xml";
@@ -23,17 +23,18 @@ public class Main {
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         return sqlSession;
 
-    }
+    }*/
 
     @SneakyThrows
     public<T> T  getCategoriMaper(Class<T>tClass)
     {
+
         return new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(resource))
                 .openSession()
                 .getMapper(tClass);
     }
-    @SneakyThrows
+   /* @SneakyThrows
     public ProductsMapper getProductMaper(){
         return main().getMapper(ProductsMapper.class);
-    }
+    }*/
 }
